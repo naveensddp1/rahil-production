@@ -1,8 +1,8 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: sample
-  namespace: argocd
+  name: rahil-app
+  namespace: rahil-ns
 spec:
   project: default
   source:
