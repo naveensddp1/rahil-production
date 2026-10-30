@@ -3,7 +3,8 @@ kind: Deployment
 metadata:
   labels:
     app: patient-deployment
-  name: patient-deployment
+    name: patient-deployment
+  annotations: argocd.argoproj.io/sync-options: confirm
 spec:
   replicas: 5
   selector:
