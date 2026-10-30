@@ -1,9 +1,10 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  name: patient-deployment
+  namespace: rahil-ns
   labels:
     app: patient-deployment
-    name: patient-deployment
   annotations: 
      argocd.argoproj.io/sync-options: Prune=confirm
 spec:
