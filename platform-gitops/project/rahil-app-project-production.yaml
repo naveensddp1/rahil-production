@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: rahil-production
+  namespace: argocd
+spec:
+  clusterResourceWhitelist:
+  - group: ""
+    kind: Namespace
+  - group: rbac.authorization.k8s.io
+    kind: ClusterRole
+  description: Production project for managing Rahil applications through GitOps
+  destinations:
+  - namespace: default
+    server: https://kubernetes.default.svc
+  - namespace: rahil-ns
+    server: https://kubernetes.default.svc
+  orphanedResources:
+    warn: true
+  sourceNamespaces:
+  - rahil-ns
+  sourceRepos:
+  - https://github.com/naveensddp1/rahil-production.git
