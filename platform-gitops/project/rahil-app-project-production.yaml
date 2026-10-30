@@ -1,8 +1,15 @@
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"argoproj.io/v1alpha1","kind":"AppProject","metadata":{"annotations":{},"creationTimestamp":"2026-10-30T06:54:38Z","generation":8,"name":"rahil-production","namespace":"argocd","resourceVersion":"209295","uid":"5b51367d-382d-4766-a3e3-f5e5a7886312"},"spec":{"clusterResourceWhitelist":[{"group":"","kind":"Namespace"},{"group":"rbac.authorization.k8s.io","kind":"ClusterRole"}],"description":"Production project for managing Rahil applications through GitOps","destinations":[{"namespace":"default","server":"https://kubernetes.default.svc"},{"namespace":"rahil-ns","server":"https://kubernetes.default.svc"}],"orphanedResources":{"warn":true},"sourceNamespaces":["rahil-ns"],"sourceRepos":["https://github.com/naveensddp1/rahil-production.git"]},"status":{}}
+  creationTimestamp: "2026-10-30T06:54:38Z"
+  generation: 9
   name: rahil-production
   namespace: argocd
+  resourceVersion: "210686"
+  uid: 5b51367d-382d-4766-a3e3-f5e5a7886312
 spec:
   clusterResourceWhitelist:
   - group: ""
@@ -21,3 +28,11 @@ spec:
   - rahil-ns
   sourceRepos:
   - https://github.com/naveensddp1/rahil-production.git
+  syncWindows:
+  - applications:
+    - '*'
+    duration: 8h
+    kind: allow
+    schedule: 0 9 * * *
+    timeZone: Asia/Kolkata
+status: {}
