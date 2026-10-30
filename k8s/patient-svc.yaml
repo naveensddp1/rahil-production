@@ -1,9 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
+  name: patient-svc
+  namespace: rahil-ns
   labels:
     app: patient-svc
-  name: patient-svc
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+
 spec:
   ports:
   - name: 80-80
