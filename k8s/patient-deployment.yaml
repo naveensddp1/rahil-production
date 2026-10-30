@@ -5,7 +5,7 @@ metadata:
     app: patient-deployment
     name: patient-deployment
   annotations: 
-      argocd.argoproj.io/sync-options: Prune=confirm
+     argocd.argoproj.io/sync-options: Prune=confirm
 spec:
   replicas: 5
   selector:
